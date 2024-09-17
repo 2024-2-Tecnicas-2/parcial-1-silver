@@ -1,35 +1,35 @@
 package com.mycompany.parcial1;
 
+import java.util.HashMap;
+import java.util.Map;
 
-    import java.util.ArrayList;
-import java.util.List;
+public class Pedido {
+    private Cliente cliente;
+    private Map<Producto, Integer> productos;
 
-public class Cliente {
-    private String nombre;
-    private String direccionEnvio;
-    private List<Pedido> pedidos;
-
-    public Cliente(String nombre, String direccionEnvio) {
-        this.nombre = nombre;
-        this.direccionEnvio = direccionEnvio;
-        this.pedidos = new ArrayList<>();
+    public Pedido(Cliente cliente) {
+        this.cliente = cliente;
+        this.productos = new HashMap<>();
     }
 
-    // Getters y Setters
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
-    public String getDireccionEnvio() { return direccionEnvio; }
-    public void setDireccionEnvio(String direccionEnvio) { this.direccionEnvio = direccionEnvio; }
-    public List<Pedido> getPedidos() { return pedidos; }
-    public void agregarPedido(Pedido pedido) { this.pedidos.add(pedido); }
+    public void agregarProducto(Producto producto, int cantidad) {
+        if (producto.getCantidadInventario() >= cantidad) {
+            productos.put(producto, cantidad);
+            producto.setCantidadInventario(producto.getCantidadInventario() - cantidad);
+        } else {
+            System.out.println("No hay suficiente inventario para " + producto.getNombre());
+        }
+    }
 
-    @Override
-    public String toString() {
-        return "Cliente{" +
-                "nombre='" + nombre + '\'' +
-                ", direccionEnvio='" + direccionEnvio + '\'' +
-                ", pedidos=" + pedidos +
-                '}';
+   
+    public void mostrarPedido() {
+        System.out.println("Pedido para el cliente: " + cliente.getNombre());
+        for (Map.Entry<Producto, Integer> entry : productos.entrySet()) {
+            Producto producto = entry.getKey();
+            int cantidad = entry.getValue();
+            System.out.println("Producto: " + producto.getNombre() + ", Cantidad: " + cantidad + ", Precio Total: " + (producto.getPrecio() * cantidad));
+        }
+
     }
 }
 
