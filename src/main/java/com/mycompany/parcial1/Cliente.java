@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Cliente {
 
-    private String nombre;
-    private String direccionEnvio;
-    private List<Pedido> pedidos;
+    public String nombre;
+    public String direccionEnvio;
+    public List<Pedido> pedidos;
 
     public Cliente(String nombre, String direccionEnvio) {
         this.nombre = nombre;
@@ -15,7 +15,6 @@ public class Cliente {
         this.pedidos = new ArrayList<>();
     }
 
-    // Getters y Setters
     public String getNombre() {
         return nombre;
     }

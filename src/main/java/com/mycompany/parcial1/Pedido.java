@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Pedido {
-    private Cliente cliente;
-    private Map<Producto, Integer> productos;
+
+    public Cliente cliente;
+    public Map<Producto, Integer> productos;
 
     public Pedido(Cliente cliente) {
         this.cliente = cliente;
@@ -21,7 +22,6 @@ public class Pedido {
         }
     }
 
-   
     public void mostrarPedido() {
         System.out.println("Pedido para el cliente: " + cliente.getNombre());
         for (Map.Entry<Producto, Integer> entry : productos.entrySet()) {
@@ -32,4 +32,3 @@ public class Pedido {
 
     }
 }
-

@@ -1,8 +1,7 @@
-
 package com.mycompany.parcial1;
 
+public class Telefono extends Producto {
 
-public class Telefono extends Producto{
     public String marca;
     public String modelo;
 
@@ -12,16 +11,24 @@ public class Telefono extends Producto{
         this.modelo = modelo;
     }
 
-    
-    public String getMarca() { return marca; }
-    public void setMarca(String marca) { this.marca = marca; }
-    public String getModelo() { return modelo; }
-    public void setModelo(String modelo) { this.modelo = modelo; }
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
 
     @Override
     public String toString() {
         return super.toString() + ", Telefono{" + "marca='" + marca + '\'' + ", modelo='" + modelo + '\'' + '}';
     }
 }
-
-
